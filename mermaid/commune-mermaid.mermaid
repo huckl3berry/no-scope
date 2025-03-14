@@ -1,0 +1,97 @@
+flowchart TD
+    %% Define the main components
+    subgraph Miners["Miners (Module Providers)"]
+        M1["Miner 1\n(Diffusion Model)"]
+        M2["Miner 2\n(Chat Model)"]
+        M3["Miner 3\n(Image Classification)"]
+        M4["Miner 4\n(Audio Processing)"]
+        M5["Miner 5\n(Other Models...)"]
+    end
+
+    subgraph Agents["Matching Agents"]
+        A["Agent Layer\n(Model-Validator Matcher)"]
+    end
+
+    subgraph Validators["Validators"]
+        V1["Validator 1\n(Diffusion Specialist)"]
+        V2["Validator 2\n(Chat Specialist)"]
+        V3["Validator 3\n(Image Specialist)"]
+        V4["Validator 4\n(Audio Specialist)"]
+        V5["Validator 5\n(Other Specialists...)"]
+    end
+
+    subgraph Chain["Commune Substrate Chain"]
+        C["Emission & Quality Tracking"]
+    end
+
+    subgraph AppStore["App Store"]
+        AS["Available Inference Services"]
+    end
+    
+    subgraph Users["Users"]
+        U["Consuming Inference Services"]
+    end
+    
+    subgraph ValueCapture["Value Capture"]
+        VC["Burn Tokens or Pay USDC"]
+    end
+
+    %% Connections
+    %% Miner to Agent connections
+    M1 --> A
+    M2 --> A
+    M3 --> A
+    M4 --> A
+    M5 --> A
+
+    %% Agent to Validator connections
+    A --> V1
+    A --> V2
+    A --> V3
+    A --> V4
+    A --> V5
+
+    %% Validator to Chain connections
+    V1 --> C
+    V2 --> C
+    V3 --> C
+    V4 --> C
+    V5 --> C
+
+    %% Chain to Miner connections (rewards)
+    C --> M1
+    C --> M2
+    C --> M3
+    C --> M4
+    C --> M5
+
+    %% Miner to App Store connections
+    M1 --> AS
+    M2 --> AS
+    M3 --> AS
+    M4 --> AS
+    M5 --> AS
+    
+    %% Value Capture connections
+    AS --> VC
+    U --> VC
+    VC --> AS
+    VC --> C
+    
+    %% Add explanatory notes
+    classDef noteStyle fill:#e8f4f8,stroke:#333,stroke-width:1px
+    
+    Note1["Miners provide different\nmodels for inference"]:::noteStyle
+    Note2["Agents match miners with\nappropriate validators"]:::noteStyle
+    Note3["Validators assess model quality\nand confirm work"]:::noteStyle
+    Note4["Chain distributes rewards\nbased on validated quality"]:::noteStyle
+    Note5["Validated models become\navailable in the app store"]:::noteStyle
+    Note6["Users burn tokens or pay USDC\nto access inference services"]:::noteStyle
+    
+    %% Connect notes to relevant components
+    Note1 -.-> Miners
+    Note2 -.-> Agents
+    Note3 -.-> Validators
+    Note4 -.-> Chain
+    Note5 -.-> AppStore
+    Note6 -.-> ValueCapture
