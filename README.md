@@ -22,24 +22,20 @@ A Python implementation for a Commune subnet that intelligently matches miners o
 
 ### Installation
 
-```bash
+```python
 # Clone the repository
-git clone https://github.com/yourusername/commune-subnet-agent.git
-cd commune-subnet-agent
+git clone https://github.com/huckl3berry/no-scope.git
+cd no-scope
 
-# Create a virtual environment (optional but recommended)
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
+# Access the subnet agent code
+python subnet_agent/subnet_agent.py
 ```
 
 ### Basic Usage
 
 ```python
 import asyncio
-from commune_subnet import CommuneSubnet
+from subnet_agent.subnet_agent import CommuneSubnet
 
 async def main():
     # Create a subnet
@@ -152,4 +148,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-Built with ❤️ for the Commune networkx 
+Built with ❤️ for the Commune network
